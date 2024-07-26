@@ -3,10 +3,12 @@ let grid = [];
 
 for (let i = 0; i <= 1; i++) {
     do{
-        let colsOrRows = prompt(`Enter the numbers of ${i==0 ? 'rows' : 'columns'} `) - 1;
-        if (!isNaN(colsOrRows)) {
-          grid[i] = colsOrRows;
-        } else {
+        let colsOrRows = prompt(`Enter the number of ${i==0 ? 'rows' : 'columns'} `);
+        if (!isNaN(colsOrRows) && colsOrRows > 0) {
+          grid[i] = colsOrRows - 1;
+        }else if(colsOrRows <= 0){
+          console.log("The given number can't be 0 or less!")
+        }else {
           console.log('Please enter a valid number!')
         }
     }while(grid.length != i + 1)
